@@ -5,7 +5,9 @@ const bodyparser = require('body-parser');
 require("dotenv").config();
 
 const app = express();
+const axios = require("axios");
 
+app.use(express.json());
 
 // create a mongoDB db and connect to it
 // set up port
@@ -14,11 +16,11 @@ const app = express();
 
 // Store PORT variable in .env file
 // connection variable is url to db, also store in .env
-/*
+
 
 const port = process.env.PORT || 5500;
 
-
+/*
 mongoose
 .connect(process.env.connection, {
     useNewUrlParser: true,
@@ -26,7 +28,8 @@ mongoose
 })
 .then(() => console.log(`DB Connected`))
 .catch((error) => console.log(error));
-
+*/
 app.get('/', (req, res) => res.send('Hello world!'));
 const server = app.listen(port, () => console.log(`Server running on port: ${port}`));
-*/
+
+const axios = require("axios");
