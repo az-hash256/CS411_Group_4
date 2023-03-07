@@ -12,6 +12,9 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/"/>
+        <Route path="/teams"/>
+        <Route path="/players"/>
+        <Route path="/login"/>
       </Routes>
     </Router>
 
