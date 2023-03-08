@@ -31,5 +31,3 @@ mongoose
 */
 app.get('/', (req, res) => res.send('Hello world!'));
 const server = app.listen(port, () => console.log(`Server running on port: ${port}`));
-
-const axios = require("axios");
