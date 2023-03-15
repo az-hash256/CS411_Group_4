@@ -1,6 +1,6 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import Login from './components/Login';
+import { Navbar } from './components/Navbar';
+import { Login }  from './Pages/Login';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
@@ -14,7 +14,7 @@ function App() {
         <Route path="/"/>
         <Route path="/teams"/>
         <Route path="/players"/>
-        <Route path="/login" component={Login}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </Router>
 
