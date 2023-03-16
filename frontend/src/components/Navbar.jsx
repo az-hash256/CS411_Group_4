@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-export default class Navbar extends React.Component{
-    render() {
+export const Navbar = () => {
         return(
             <div className = "navbar">
                 <ul className = "Pages">
@@ -22,5 +21,4 @@ export default class Navbar extends React.Component{
                 </ul>
             </div>
         )
-    }
 }
