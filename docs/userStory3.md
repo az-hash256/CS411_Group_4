@@ -1,0 +1,1 @@
+As a general user, I want to be able to log into the app and see my favorite team's upcoming games. If this feature works successfully, I should be able to see the next week's worth of games of my favorite team right when I log into the app. In the case where I can't log in, a message will be shown to the user regarding invalid log-in credentials.
