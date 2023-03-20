@@ -11,8 +11,8 @@ export const PlayerCard = (props) => {
                 <h1>{playerName}</h1>
             </div>
             <div>
-                <p>{age}</p>
-                <p>{stats}</p>
+                <p>Player's Age: {age}</p>
+                <p>Current Statistics: {stats}</p>
             </div>
         </div>
         )
