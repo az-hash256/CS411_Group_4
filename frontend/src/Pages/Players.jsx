@@ -3,7 +3,6 @@ import { PlayerCard } from "../components/PlayerCard"
 
 export const Players = () => {
     return (
-        <PlayerCard/>
-    
+        <PlayerCard name="LeBron"/>
         )
 }
