@@ -30,18 +30,23 @@ mongoose
 */
 const axios = require("axios");
 
-const options = {
-  method: 'GET',
-  url: 'https://api-nba-v1.p.rapidapi.com/teams',
-  headers: {
-    'X-RapidAPI-Key': '3a9f9cf62fmsh97332515ed2ce66p194847jsnb213224fadeb',
-    'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-  }
-};
-axios.request(options).then(response => {
-	console.log(response.data);
-}).catch(error => {
-	console.error(error);
+app.get('/api/teams', async (req, res) => {
+    try {
+      const options = {
+        method: 'GET',
+        url: 'https://api-nba-v1.p.rapidapi.com/teams',
+        headers: {
+          'X-RapidAPI-Key': process.env.RAPID_KEY,
+          'X-RapidAPI-Host': process.env.RAPID_HOST
+        }
+      };
+      const response = await axios.request(options);
+      const data = response.data;
+      res.json(data);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Something went wrong' });
+    }
 });
 
 app.get('/', (req, res) => res.send('Hello world!'));
