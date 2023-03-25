@@ -1,5 +1,11 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
+import { TeamCard } from './../components/TeamCard';
+import axios from "axios";
+
 
 export const Teams = () => {
-    return (<p>hi</p>)
+    const [team, setTeam] = useState("");
+    return (
+        <TeamCard teamName={team}/>
+    )
 }
