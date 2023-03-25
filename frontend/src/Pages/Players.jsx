@@ -1,5 +1,8 @@
 import React from 'react';
+import { PlayerCard } from "../components/PlayerCard"
 
 export const Players = () => {
-    return (<p> LOL </p>)
+    return (
+        <PlayerCard name="LeBron"/>
+        )
 }
