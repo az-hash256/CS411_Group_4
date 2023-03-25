@@ -2,8 +2,8 @@ import React from 'react';
 
 export const PlayerCard = (props) => {
     const playerName = props.name;
-    const age = props.age
-    const stats = props.stats
+    const age = props.age;
+    const stats = props.stats;
 
     return (
         <div>

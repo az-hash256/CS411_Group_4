@@ -1,5 +1,9 @@
-import React from 'react';
+import { React, useState } from 'react';
+import { TeamCard } from './../components/TeamCard'
 
 export const Teams = () => {
-    return (<p>hi</p>)
+    const [team, setTeam] = useState("Celtics");
+    return (
+        <TeamCard teamName={team}/>
+    )
 }
