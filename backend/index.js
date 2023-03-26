@@ -7,6 +7,7 @@ require("dotenv").config();
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 // create a mongoDB db and connect to it
 // set up port
