@@ -8,7 +8,7 @@ export const TeamCard = (props) => {
     return (
         <div className = "teamcard">
             <img className = "logo" src={teamLogo} alt="Not Found"></img>
-            <h1>Team Name: {teamName}</h1>
+            <h1>{teamName}</h1>
             <h3>City: {teamCity}</h3>
         </div>
 

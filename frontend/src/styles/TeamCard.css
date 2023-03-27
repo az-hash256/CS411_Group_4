@@ -15,7 +15,6 @@
     margin: 10px;
 }
 
-
 h1 {
     font-size: 20px;
     font-family: 'Trebuchet MS';
@@ -24,8 +23,4 @@ h1 {
 h3 {
     font-size: 15px;
     font-family: 'Trebuchet MS';
-}
-
-.whitespace {
-    padding: 50px;
 }
