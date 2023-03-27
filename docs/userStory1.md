@@ -1,0 +1,2 @@
+As a father, I want to be able to purchase tickets to a Celtics game in the near future for my children. I should be able to go into the app and look up tickets for upcoming Celtics games. If this works correctly, I should be able to see a list of upcoming games for a specific team that I search for. I should be able to look for a ticket price that fits my budget. If a specific price doesn't exist, the user should see a message that alerts them that this ticket is not available.
+
