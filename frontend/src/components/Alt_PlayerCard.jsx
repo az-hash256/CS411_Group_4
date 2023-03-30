@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+
 export const Alt_PlayerCard = (props) => {
     const playerName = props.name;
     const age = props.age;
@@ -26,4 +27,3 @@ export const Alt_PlayerCard = (props) => {
 
     );
 }
-export default Alt_PlayerCard;

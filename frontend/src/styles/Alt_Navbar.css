@@ -1,0 +1,19 @@
+.navbar-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+  
+.navbar-container a {
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+  
+.navbar-container .active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+}
