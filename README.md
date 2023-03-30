@@ -8,7 +8,7 @@ Using NBA Data API(https://rapidapi.com/api-sports/api/api-nba/) as well as the 
 App Interface/UX/UI:
 
 3 pages: Games, Teams, Players
-Navbar to navigate to these diff tabs (right handed)
+Alt_Navbar to navigate to these diff tabs (right handed)
 Login/Signin button on navbar
 Must be logged in to view favorite players/teams
 games displayed based on date that user chooses (limited to current season?)
