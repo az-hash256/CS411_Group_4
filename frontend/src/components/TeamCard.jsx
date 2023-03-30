@@ -1,6 +1,7 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import "../styles/TeamCard.css"
-
 export const TeamCard = (props) => {
     const teamName = props.teamName;
     const teamCity = props.teamCity;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { PlayerCard } from "../components/PlayerCard"
-
+import  Alt_PlayerCard  from "../components/Alt_PlayerCard"
 export const Players = () => {
     return (
-        <PlayerCard name="LeBron"/>
+        <Alt_PlayerCard name="LeBron"/>
         )
 }
