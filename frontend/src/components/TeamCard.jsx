@@ -1,13 +1,17 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import "../styles/TeamCard.css"
 export const TeamCard = (props) => {
     const teamName = props.teamName;
-    const teamRecord = props.teamRecord;
+    const teamCity = props.teamCity;
+    const teamLogo = props.teamLogo
     return (
-        <div>
-            <h1>Team Name: {teamName}</h1>
-            <h3>Record: {teamRecord}</h3>
+        <div className = "teamcard">
+            <img className = "logo" src={teamLogo} alt="Not Found"></img>
+            <h1>{teamName}</h1>
+            <h3>City: {teamCity}</h3>
         </div>
+
     )
 }

@@ -1,0 +1,26 @@
+.logo {
+    height: auto;
+    width: auto;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.teamcard{
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding: 20px;
+    height: 250px;
+    width: 400px;
+    margin: 10px;
+}
+
+h1 {
+    font-size: 20px;
+    font-family: 'Trebuchet MS';
+}
+
+h3 {
+    font-size: 15px;
+    font-family: 'Trebuchet MS';
+}
