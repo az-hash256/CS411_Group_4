@@ -11,7 +11,8 @@ export const Login = () => {
     useEffect(() => {
         async function getID() {
           const response = await axios.get('http://localhost:5500/login/init');
-          setGoogleClientID(response);
+          setGoogleClientID(response.data);
+          console.log(response)
         }
         getID();
       }, []);
