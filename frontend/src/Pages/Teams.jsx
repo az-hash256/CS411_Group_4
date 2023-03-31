@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import { TeamCard } from './../components/TeamCard';
 import axios from "axios";
+import "../styles/Teams.css";
+
 
 
 export const Teams = () => {
@@ -16,9 +18,9 @@ export const Teams = () => {
     }, []);
   
     return (
-      <div>
+      <div className = "cards">
         {teams.map((team) => (
-            <TeamCard key={team.id} teamName = {team.name} teamCity = {team.city}/>
+            <TeamCard key={team.id} teamName = {team.name} teamCity = {team.city} teamLogo ={team.logo}/>
         ))}
       </div>
     );
