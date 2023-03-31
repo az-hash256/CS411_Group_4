@@ -4,7 +4,6 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 const passport = require('passport');
 const teamsRouter = require('./routes/teams');
-const authRouter = require('./routes/auth');
 const playersRouter = require('./routes/players');
 require("dotenv").config();
 
@@ -34,10 +33,9 @@ mongoose
 .catch((error) => console.log(error));
 
 
-const axios = require("axios");
 app.use('/api/teams', teamsRouter);
-app.use('/', authRouter);
 app.use('/', playersRouter);
+app.get('/login/init', (req, res) => res.send(process.env.googlekey));
 
 app.get('/', (req, res) => res.send('Hello world!'));
 const server = app.listen(port, () => console.log(`Server running on port: ${port}`));
