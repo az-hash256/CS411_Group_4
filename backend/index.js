@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 const teamsRouter = require('./routes/teams');
 const playersRouter = require('./routes/players');
+const userId = require('./schemas/userSchema');
 require("dotenv").config();
 
 const app = express();
