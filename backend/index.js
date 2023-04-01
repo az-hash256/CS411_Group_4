@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyparser = require('body-parser');
-const passport = require('passport');
 const teamsRouter = require('./routes/teams');
 const playersRouter = require('./routes/players');
 require("dotenv").config();
@@ -12,17 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// create a mongoDB db and connect to it
-// set up port
-
-// use this as reference
-
-// Store PORT variable in .env file
-// connection variable is url to db, also store in .env
-
-
 const port = process.env.PORT || 5500;
-
 
 mongoose
 .connect(process.env.connection, {
