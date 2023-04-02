@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-router.get('/api/singleteam', async (req, res) => {
+router.post('/api/singleteam', async (req, res) => {
   try {
+    const teamId = req.body.teamId;
     const options = {
         method: 'GET',
         url: 'https://api-nba-v1.p.rapidapi.com/players',
-        params: {team: '1', season: '2022'},
+        params: {team: teamId, season: '2022'},
         headers: {
           'X-RapidAPI-Key': process.env.RAPID_KEY,
           'X-RapidAPI-Host': process.env.RAPID_HOST
