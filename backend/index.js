@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 const teamsRouter = require('./routes/teams');
 const playersRouter = require('./routes/players');
+const gamesRouter = require('./routes/games')
 const userId = require('./schemas/userSchema');
 require("dotenv").config();
 
@@ -26,6 +27,7 @@ mongoose
 app.use('/api/teams', teamsRouter);
 app.use('/', playersRouter);
 app.get('/login/init', (req, res) => res.send(process.env.googlekey));
+app.use('/', gamesRouter)
 
 app.get('/', (req, res) => res.send('Hello world!'));
 const server = app.listen(port, () => console.log(`Server running on port: ${port}`));
