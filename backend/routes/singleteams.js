@@ -2,16 +2,17 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-router.get('/api/teams', async (req, res) => {
+router.get('/api/singleteam', async (req, res) => {
   try {
     const options = {
-      method: 'GET',
-      url: 'https://api-nba-v1.p.rapidapi.com/teams',
-      headers: {
-        'X-RapidAPI-Key': process.env.RAPID_KEY,
-        'X-RapidAPI-Host': process.env.RAPID_HOST
-      }
-    };
+        method: 'GET',
+        url: 'https://api-nba-v1.p.rapidapi.com/players',
+        params: {team: '1', season: '2022'},
+        headers: {
+          'X-RapidAPI-Key': process.env.RAPID_KEY,
+          'X-RapidAPI-Host': process.env.RAPID_HOST
+        }
+      };
     const response = await axios.request(options);
     const data = response.data;
     res.json(data);
