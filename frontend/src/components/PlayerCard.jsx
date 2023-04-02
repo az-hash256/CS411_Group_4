@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import "./../styles/PlayerCard.css";
 export const PlayerCard = ({ name, age, team, photo, role }) => {
   return (
-      <Card className="custom-card" style={{ width: "18rem" }}>
-        <Link to="/other-page"></Link>
+
+      <Card className="custom-card">
+        <Link to="/other-page">
         <Card.Img variant="top" src={photo} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
@@ -17,6 +18,7 @@ export const PlayerCard = ({ name, age, team, photo, role }) => {
             Role: {role}
           </Card.Text>
         </Card.Body>
+        </Link>
       </Card>
   );
 };

@@ -4,7 +4,8 @@ import axios from 'axios';
 import  { PlayerCard }  from "../components/PlayerCard"
 import teamData from "../data_file/team.json";
 import { Link } from "react-router-dom";
-import {CardGroup} from "react-bootstrap";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 export const Players = () => {
       const [players, setPlayers] = useState([]);
       useEffect(() => {
@@ -22,8 +23,9 @@ export const Players = () => {
       }
       return(
         <div>
-          <CardGroup>
+          <Row xs={1} md={2} lg = {4} xl={5}className="g-4">
             {players.map((player) => {
+              
               const birthYear = new Date(player.dateOfBirthUTC).getFullYear();
               const currentYear = new Date().getFullYear();
               const age = currentYear - birthYear;
@@ -32,6 +34,7 @@ export const Players = () => {
               const position = player.teamSitesOnly.posFull;
               const photo = `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.personId}.png`;
               return (
+                <Col>
                 <Link to="/other-page">
                   <PlayerCard 
                     key={player.personId} 
@@ -42,9 +45,10 @@ export const Players = () => {
                     role = {position}
                   />
                 </Link>
+                </Col>
               );
             })}
-          </CardGroup>
+          </Row>
         </div>
       );
   };
