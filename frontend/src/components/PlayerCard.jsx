@@ -1,19 +1,22 @@
-import React from 'react';
-
-export const PlayerCard = (props) => {
-    const playerName = props.name;
-    const age = props.age;
-    const stats = props.stats;
-
-    return (
-        <div>
-            <div>
-                <h1>{playerName}</h1>
-            </div>
-            <div>
-                <p>Player's Age: {age}</p>
-                <p>Current Statistics: {stats}</p>
-            </div>
-        </div>
-        )
-}
+import React from "react";
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import "./../styles/PlayerCard.css";
+export const PlayerCard = ({ name, age, team, photo, role }) => {
+  return (
+      <Card className="custom-card" style={{ width: "18rem" }}>
+        <Link to="/other-page"></Link>
+        <Card.Img variant="top" src={photo} />
+        <Card.Body>
+          <Card.Title>{name}</Card.Title>
+          <Card.Text>
+            Team: {team}
+            <br />
+            Age: {age}
+            <br />
+            Role: {role}
+          </Card.Text>
+        </Card.Body>
+      </Card>
+  );
+};
