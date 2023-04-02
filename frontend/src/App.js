@@ -6,6 +6,7 @@ import { Teams } from './Pages/Teams';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Error } from './Pages/Error'; 
 import { Navbar}   from './components/Navbar';
+import {Team} from './Pages/Team';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function App() {
@@ -15,13 +16,14 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Games/>}/>
-        <Route path="/teams" element={<Teams/>}/>
+        <Route path="/teams" element={<Teams/>}>
+          <Route path=":teamName" element={<Team />} />
+        </Route>
         <Route path="/players" element={<Players/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path='/*' element={<Error/>}/>
       </Routes>
     </Router>
-
     </div>
   );
 }

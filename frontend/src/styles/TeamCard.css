@@ -13,6 +13,7 @@
     height: 250px;
     width: 400px;
     margin: 10px;
+    display: 'block';
   }
   
   :not(h1) {
