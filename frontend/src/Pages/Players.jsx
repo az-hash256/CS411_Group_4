@@ -18,7 +18,7 @@ export const Players = () => {
         fetchPlayers();
       }, []);
       function getTeamName(teamId) {
-        const team = teamData.find((team) => team.teamId == teamId);
+        const team = teamData.find((team) => team.teamId === teamId);
         return team ? team.teamName : "Unknown";
       }
       return(

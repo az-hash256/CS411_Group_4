@@ -25,7 +25,6 @@ mongoose
 .then(() => console.log(`DB Connected`))
 .catch((error) => console.log(error));
 
-
 app.use('/', teamsRouter);
 app.use('/', playersRouter);
 app.get('/login/init', (req, res) => res.send(process.env.googlekey));
