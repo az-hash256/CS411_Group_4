@@ -6,26 +6,33 @@ import teamData from "../data_file/team.json";
 import { Link } from "react-router-dom";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-export const Players = () => {
+export const Players = ({ teamId }) => {
       const [players, setPlayers] = useState([]);
       useEffect(() => {
         async function fetchPlayers() {
           const response = await axios.get('http://localhost:5500/players');
           const nba_players = response.data.league.standard.filter((player) => player.isActive === true);
-          console.log(response.data.league.standard)
-          setPlayers(nba_players);
+          if (teamId) {
+            const filteredPlayers = nba_players.filter((player) => player.teamId == teamId);
+            setPlayers(filteredPlayers);
+          } else {
+            setPlayers(nba_players);
+          }
         }
         fetchPlayers();
-      }, []);
+      }, [teamId]);
       function getTeamName(teamId) {
-        const team = teamData.find((team) => team.teamId === teamId);
-        return team ? team.teamName : "Unknown";
+        const team = teamData.find((team) => team.teamId == teamId);
+        if(team.teamName.length > 1 && Array.isArray(team.teamName)){
+          return team ? team.teamName[0] : "Unknown";
+        }else{
+          return team ? team.teamName : "Unknown";
+        }
       }
       return(
         <div>
           <Row xs={1} md={2} lg = {4} xl={5}className="g-4">
             {players.map((player) => {
-              
               const birthYear = new Date(player.dateOfBirthUTC).getFullYear();
               const currentYear = new Date().getFullYear();
               const age = currentYear - birthYear;
