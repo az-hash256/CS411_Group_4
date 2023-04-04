@@ -17,7 +17,7 @@ export const Login = () => {
         getID();
       }, []);
 
-
+      /* if user exists in db, don't do anything, else post request */
     return(
         <GoogleOAuthProvider clientId={googleClientID}>
             {googleClientID !== "" &&
