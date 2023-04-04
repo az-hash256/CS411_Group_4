@@ -17,24 +17,13 @@ export const Login = () => {
         getID();
       }, []);
     
-    const handleGoogleLoginSuccess = async (credentialResponse) => {
-        console.log(credentialResponse);
-        try {
-            const response = await axios.post('http://localhost:5500/users', {
-                email: credentialResponse.credential,
-            });
-            console.log(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-    
       /* if user exists in db, don't do anything, else post request */
     return(
         <GoogleOAuthProvider clientId={googleClientID}>
             {googleClientID !== "" &&
             <GoogleLogin
-                onSuccess={handleGoogleLoginSuccess}
+                onSuccess={(credentialResponse) => {
+                    console.log(credentialResponse)}}
                 onError={() => {
                     console.log('Login Failed');
                 }}/>
