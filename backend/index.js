@@ -6,6 +6,7 @@ const teamsRouter = require('./routes/teams');
 const playersRouter = require('./routes/players');
 const gamesRouter = require('./routes/games');
 const singleTeamRouter = require('./routes/singleteams');
+const userRoute = require('./routes/loginDB')
 const userId = require('./schemas/userSchema');
 require("dotenv").config();
 
@@ -30,6 +31,7 @@ app.use('/', playersRouter);
 app.get('/login/init', (req, res) => res.send(process.env.googlekey));
 app.use('/', gamesRouter)
 app.use('/', singleTeamRouter)
+app.use('/', userRoute)
 
 
 app.get('/', (req, res) => res.send('Hello world!'));
