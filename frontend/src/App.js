@@ -16,9 +16,8 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Games/>}/>
-        <Route path="/teams" element={<Teams/>}>
-          <Route path=":teamName" element={<Team />} />
-        </Route>
+        <Route path="/teams" element={<Teams/>}/>
+        <Route path="/teams/:teamName" element={<Team />}/>
         <Route path="/players" element={<Players/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path='/*' element={<Error/>}/>
