@@ -4,11 +4,7 @@ const bodyparser = require('body-parser');
 const teamsRouter = require('./routes/teams');
 const playersRouter = require('./routes/players');
 const gamesRouter = require('./routes/games');
-const admin = require('firebase-admin');
-const serviceAccount = require('./cs411-382322-firebase-adminsdk-d6sqr-5cb928a02e.json')
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+const { admin } = require('./firebase');
 const authRouter = require('./routes/auth');
 const singleTeamRouter = require('./routes/singleteams');
 require("dotenv").config();

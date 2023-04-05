@@ -21,7 +21,6 @@ async function verifyToken(idToken) {
 router.post('/google', async (req, res) => {
   const idToken = req.body.idToken;
   const { userId } = await verifyToken(idToken);
-
   try {
     const token = await admin.auth().createCustomToken(userId);
     res.json({ token });
