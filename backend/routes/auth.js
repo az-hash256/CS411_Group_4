@@ -4,6 +4,7 @@ const router = express.Router();
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.googlekey);
 const { admin } = require('../firebase');
+const firestore = admin.firestore();
 
 async function verifyToken(idToken) {
   const ticket = await client.verifyIdToken({
@@ -20,9 +21,10 @@ async function verifyToken(idToken) {
 
 router.post('/google', async (req, res) => {
   const idToken = req.body.idToken;
-  const { userId } = await verifyToken(idToken);
+  const { userId, email } = await verifyToken(idToken);
   try {
     const token = await admin.auth().createCustomToken(userId);
+    await firestore.collection('users').doc(userId).set({ email });
     res.json({ token });
   } catch (error) {
     res.status(500).json({ message: 'Error generating token.' });
