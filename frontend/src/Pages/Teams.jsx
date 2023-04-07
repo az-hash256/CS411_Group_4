@@ -16,7 +16,6 @@ export const Teams = () => {
       }
       fetchTeams();
     }, []);
-  
     return (
       <div className = "cards">
         {teams.map((team) => (

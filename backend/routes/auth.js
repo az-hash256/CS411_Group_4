@@ -1,14 +1,34 @@
 const express = require('express');
-
 const router = express.Router();
 
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oidc');
+const { OAuth2Client } = require('google-auth-library');
+const client = new OAuth2Client(process.env.googlekey);
+const { admin } = require('../firebase');
+const firestore = admin.firestore();
 
-router.get('/login', function(req, res, next) {
-  res.render('login');
+async function verifyToken(idToken) {
+  const ticket = await client.verifyIdToken({
+    idToken: idToken,
+    audience: process.env.googlekey
+  });
+  const payload = ticket.getPayload();
+  const userId = payload['sub'];
+  const email = payload['email'];
+  const name = payload['name'];
+  const pictureUrl = payload['picture'];
+  return { userId, email, name, pictureUrl };
+}
+
+router.post('/google', async (req, res) => {
+  const idToken = req.body.idToken;
+  const { userId, email } = await verifyToken(idToken);
+  try {
+    const token = await admin.auth().createCustomToken(userId);
+    await firestore.collection('users').doc(userId).set({ email });
+    res.json({ token });
+  } catch (error) {
+    res.status(500).json({ message: 'Error generating token.' });
+  }
 });
-
-router.get('/login/federated/google', passport.authenticate('google'));
 
 module.exports = router;

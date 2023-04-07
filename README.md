@@ -13,3 +13,5 @@ Login/Signin button on navbar
 Must be logged in to view favorite players/teams
 games displayed based on date that user chooses (limited to current season?)
 Favorite players must be current players, favorite teams should be current teams
+
+THIS IS THE CURRENT VERSION OF THE APP(PROTOTYPE). ALL CLASS ASSIGNMENTS ARE IN THE DOCS FOLDER. VIDEO IS ON MAIN PAGE (SEE ABOVE).
