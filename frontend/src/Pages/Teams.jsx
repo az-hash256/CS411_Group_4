@@ -7,7 +7,6 @@ import "../styles/Teams.css";
 
 export const Teams = () => {
     const [teams, setTeams] = useState([]);
-
     useEffect(() => {
       async function fetchTeams() {
         const response = await axios.get('http://localhost:5500/api/teams');
