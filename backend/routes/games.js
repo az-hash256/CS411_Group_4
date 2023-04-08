@@ -19,7 +19,6 @@ router.get('/games', async (req, res) => {
         }
     })  
     .then(response => {
-    console.log(todayString)
     res.json(response.data);
     })
     .catch(error => {
