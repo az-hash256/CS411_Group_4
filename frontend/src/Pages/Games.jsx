@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import  { GameCard }  from "../components/GameCard"
-import teamData from "../data_file/team.json";
 import ListGroup from 'react-bootstrap/ListGroup';
 import "../styles/Game.css";
 export const Games = () => {
@@ -29,14 +27,14 @@ export const Games = () => {
               price_min = game.priceRanges[0].min;
               currency = game.priceRanges[0].currency;
             }
-            let Price = "No info"
+            let Price = "N/A"
             if(price_min !== "N/A"){
               Price = `${price_min} ${currency}`
             }
             const link = game.url
             const date = `${game.dates.start.localDate} ${game.dates.start.localTime}`;
             return (
-              <ListGroup.Item key={game.id} action href={link} variant="info">
+              <ListGroup.Item  style={{  marginTop: "10px", borderWidth: "7px" }} key={game.id} action href={link} variant="info">
                 <div style={{ textAlign: "center" }}>
                   <h2>{game.name}</h2>
                   <h3>Time: {date}</h3>
