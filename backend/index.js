@@ -4,6 +4,7 @@ const bodyparser = require('body-parser');
 const teamsRouter = require('./routes/teams');
 const playersRouter = require('./routes/players');
 const gamesRouter = require('./routes/games');
+const logOut = require('./routes/logout');
 const { admin } = require('./firebase');
 const authRouter = require('./routes/auth');
 const singleTeamRouter = require('./routes/singleteams');
@@ -19,6 +20,7 @@ app.use(bodyparser.json());
 const port = process.env.PORT || 5500;
 
 app.use('/auth', authRouter);
+app.use('/', logOut);
 app.use('/', teamsRouter);
 app.use('/', playersRouter);
 app.get('/login/init', (req, res) => res.send(process.env.googlekey));
