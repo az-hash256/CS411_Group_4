@@ -8,7 +8,6 @@ export const Login = () => {
   const [googleClientID, setGoogleClientID] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
-
   useEffect(() => {
     async function getID() {
       const response = await axios.get('http://localhost:5500/login/init');
@@ -31,13 +30,7 @@ export const Login = () => {
   };
 
   const handleLogout = async () => {
-    try {
-      const response = await axios.post('http://localhost:5500/logout');
-      console.log(response.credential);
-      setLoggedIn(false);
-    } catch (error) {
-      console.log(error);
-    }
+    setLoggedIn(false);
   }
     
     
