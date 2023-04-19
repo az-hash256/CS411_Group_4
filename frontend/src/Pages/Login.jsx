@@ -1,12 +1,11 @@
-import { React, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from "@react-oauth/google";
 
-
-export const Login = () => {
+export const Login = ({ onLogin, onLogout }) => {
   const [googleClientID, setGoogleClientID] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(localStorage.getItem("loggedIn") === "true"); 
 
   useEffect(() => {
     async function getID() {
@@ -23,21 +22,24 @@ export const Login = () => {
         idToken: credentialResponse.credential
       });
       console.log(response.data);
-      setLoggedIn(true);
+      setLoggedIn(true); 
+      localStorage.setItem("loggedIn", "true"); 
+      onLogin();
     } catch (error) {
       console.log(error);
     }
   };
 
   const handleLogout = async () => {
-    setLoggedIn(false);
+    setLoggedIn(false); 
+    localStorage.setItem("loggedIn", "false");
+    onLogout();
   }
-    
     
   const handleGoogleError = () => {
     console.log('Login Failed');
   };
-      /* if user exists in db, don't do anything, else post request */
+
   return(
     <div>
       {loggedIn ? (
@@ -55,6 +57,5 @@ export const Login = () => {
         </GoogleOAuthProvider>
       )}
     </div>
-    )
+  )
 }
-
