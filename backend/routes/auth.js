@@ -21,10 +21,10 @@ async function verifyToken(idToken) {
 
 router.post('/google', async (req, res) => {
   const idToken = req.body.idToken;
-  const { userId, email } = await verifyToken(idToken);
+  const { userId, email, name } = await verifyToken(idToken);
   try {
     const token = await admin.auth().createCustomToken(userId);
-    await firestore.collection('users').doc(userId).set({ email });
+    await firestore.collection('users').doc(userId).set({ email, name, userId });
     res.json({ token });
   } catch (error) {
     res.status(500).json({ message: 'Error generating token.' });
